@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         if(user == null){
             startActivity(new Intent(MainActivity.this,Dashboard.class));
         }
+        else{
+            
+        }
 
 
     }
