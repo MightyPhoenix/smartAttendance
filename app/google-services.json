@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "879655396604-ae973itafh4g7a5sddkso6fiipfrmbbb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.A4.smartattendance",
+            "certificate_hash": "5a6ae7809619fba3644cc1cc39fc72be38967feb"
+          }
+        },
+        {
           "client_id": "879655396604-i9c6cruau5rgvo6ff9309mvpv30mloe0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
