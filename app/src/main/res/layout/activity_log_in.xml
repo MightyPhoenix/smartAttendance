@@ -9,18 +9,21 @@
     tools:context=".LogIn">
 
     <EditText
+        android:id="@+id/email"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:hint="User Name"
         />
 
     <EditText
+        android:id="@+id/password"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:hint="Password"
         />
 
     <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
