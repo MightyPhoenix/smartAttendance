@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Dashboard extends AppCompatActivity {
 
-    private Button btn;
+    private Button btn,attendance;
     private TextView textView;
 
     private FirebaseAuth mAuth;
@@ -25,6 +25,7 @@ public class Dashboard extends AppCompatActivity {
 //        textView.setText(mAuth.getUid());
 
         btn=findViewById(R.id.logout);
+        attendance=findViewById(R.id.attendance);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +33,12 @@ public class Dashboard extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(Dashboard.this,LogIn.class));
                 finish();
+            }
+        });
+        attendance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Dashboard.this,Attendance.class));
             }
         });
 
