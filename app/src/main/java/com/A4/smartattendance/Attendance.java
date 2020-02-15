@@ -49,12 +49,12 @@ public class Attendance extends AppCompatActivity {
         setContentView(R.layout.activity_attendance);
 
 
-        ActionBar actionBar;
-        actionBar = getSupportActionBar();
-        ColorDrawable colorDrawable
-                = new ColorDrawable(
-                Color.parseColor("#0F9D58"));
-        actionBar.setBackgroundDrawable(colorDrawable);
+//        ActionBar actionBar;
+//        actionBar = getSupportActionBar();
+//        ColorDrawable colorDrawable
+//                = new ColorDrawable(
+//                Color.parseColor("#0F9D58"));
+//        actionBar.setBackgroundDrawable(colorDrawable);
         btnSelect = findViewById(R.id.btnChoose);
         btnUpload = findViewById(R.id.btnUpload);
         imageView = findViewById(R.id.imgView);
@@ -72,7 +72,6 @@ public class Attendance extends AppCompatActivity {
             public void onClick(View v)
             {
                 uploadImage();
-                database();
             }
         });
     }
@@ -169,14 +168,8 @@ public class Attendance extends AppCompatActivity {
                                                     + (int)progress + "%");
                                 }
                             });
+            startActivity(new Intent(Attendance.this,Dashboard.class));
         }
 
-    }
-    public void database(){
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("images");
-
-        myRef.setValue(temp);
-        Toast.makeText(Attendance.this,"DATABASE",Toast.LENGTH_SHORT);
     }
 }

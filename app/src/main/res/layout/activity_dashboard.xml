@@ -34,7 +34,7 @@
             android:minWidth="300dp"
             android:text="Home"
             android:textColor="#fff"
-
+            android:layout_marginHorizontal="5dp"
             />
 
         <Button
@@ -44,6 +44,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn_bg_attn"
             android:textColor="#fff"
+            android:layout_marginHorizontal="5dp"
             android:text="Attendance"/>
         <Button
             android:id="@+id/logout"
@@ -52,6 +53,7 @@
             android:layout_height="wrap_content"
             android:textColor="#fff"
             android:background="@drawable/btn_bg_logout"
+            android:layout_marginHorizontal="5dp"
             android:text="Logout"/>
 
 
