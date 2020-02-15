@@ -2,12 +2,14 @@ package com.A4.smartattendance;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -36,6 +38,8 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 import java.util.UUID;
+
+import static android.media.MediaRecorder.VideoSource.CAMERA;
 
 public class Attendance extends AppCompatActivity {
 
@@ -78,7 +82,7 @@ public class Attendance extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                SelectImage();
+                showPictureDialog();
             }
         });
         btnUpload.setOnClickListener(new View.OnClickListener() {
@@ -86,8 +90,31 @@ public class Attendance extends AppCompatActivity {
             public void onClick(View v)
             {
                 uploadImage();
+//                showPictureDialog();
             }
         });
+    }
+    private void showPictureDialog(){
+        AlertDialog.Builder pictureDialog = new AlertDialog.Builder(this);
+        pictureDialog.setTitle("Select Action");
+        String[] pictureDialogItems = {
+                "Select photo from gallery",
+                "Capture photo from camera" };
+        pictureDialog.setItems(pictureDialogItems,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0:
+                                SelectImage();
+                                break;
+                            case 1:
+                                takePhotoFromCamera();
+                                break;
+                        }
+                    }
+                });
+        pictureDialog.show();
     }
     private void SelectImage()
     {
@@ -108,6 +135,9 @@ public class Attendance extends AppCompatActivity {
         super.onActivityResult(requestCode,
                 resultCode,
                 data);
+        if (resultCode == this.RESULT_CANCELED) {
+            return;
+        }
         if (requestCode == PICK_IMAGE_REQUEST
                 && resultCode == RESULT_OK
                 && data != null
@@ -125,6 +155,13 @@ public class Attendance extends AppCompatActivity {
             catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+        else{
+            Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+            filePath=data.getData();
+            imageView.setImageBitmap(thumbnail);
+//            saveImage(thumbnail);
+            Toast.makeText(Attendance.this, "Image Saved!", Toast.LENGTH_SHORT).show();
         }
     }
     private void uploadImage()
@@ -186,4 +223,22 @@ public class Attendance extends AppCompatActivity {
         }
 
     }
+    private void takePhotoFromCamera() {
+        Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, CAMERA);
+    }
+//
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (resultCode == this.RESULT_CANCELED) {
+//            return;
+//        } else if (requestCode == CAMERA) {
+//            Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+//            imageView.setImageBitmap(thumbnail);
+////            saveImage(thumbnail);
+//            Toast.makeText(Attendance.this, "Image Saved!", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 }
