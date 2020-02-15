@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#BE13626B"
     android:padding="20dp"
     tools:context=".LogIn">
 
@@ -14,13 +15,15 @@
         android:text="Teacher's Sign In"
         android:textAlignment="center"
         android:textSize="32dp"
-        android:background="#b2ebf2"
-        android:textColor="#000"
-
+        android:textColor="#fff"
+    />
     <EditText
         android:id="@+id/email"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        android:outlineSpotShadowColor="#fff"
         android:hint="User Name"
         />
 
@@ -29,6 +32,8 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:hint="Password"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
         />
 
     <Button
@@ -38,8 +43,8 @@
         android:text="Login"
         android:width="1000dp"
         android:textAlignment="center"
-        android:textColor="#fff"
-        android:background="#00bcd4"
+        android:textColor="#EDE7F6"
+        android:background="#0098B4"
         />
 
 </LinearLayout>
