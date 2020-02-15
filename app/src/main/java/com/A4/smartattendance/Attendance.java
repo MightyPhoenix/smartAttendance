@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -13,12 +14,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -33,8 +37,10 @@ public class Attendance extends AppCompatActivity {
     private ImageView imageView;
     private Uri filePath;
     private final int PICK_IMAGE_REQUEST = 22;
+    private String temp;
     FirebaseStorage storage;
     StorageReference storageReference;
+    DatabaseReference databaseReference;
 
 
     @Override
@@ -66,6 +72,7 @@ public class Attendance extends AppCompatActivity {
             public void onClick(View v)
             {
                 uploadImage();
+                database();
             }
         });
     }
@@ -114,11 +121,12 @@ public class Attendance extends AppCompatActivity {
                     = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
+            temp = UUID.randomUUID().toString();
             StorageReference ref
                     = storageReference
                     .child(
                             "images/"
-                                    + UUID.randomUUID().toString());
+                                    + temp);
             ref.putFile(filePath)
                     .addOnSuccessListener(
                             new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -162,5 +170,13 @@ public class Attendance extends AppCompatActivity {
                                 }
                             });
         }
+
+    }
+    public void database(){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("images");
+
+        myRef.setValue(temp);
+        Toast.makeText(Attendance.this,"DATABASE",Toast.LENGTH_SHORT);
     }
 }
