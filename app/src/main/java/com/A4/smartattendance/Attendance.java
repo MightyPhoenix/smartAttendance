@@ -3,20 +3,26 @@ package com.A4.smartattendance;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.Window;
 import android.webkit.MimeTypeMap;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -47,6 +53,9 @@ public class Attendance extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance);
+//        if(Build.VERSION.SDK_INT >= 21){
+//            getWindow().setStatusBarColor(ContextCompat.getColor(context,R.color.colorAccent ));
+//        }
 
 
 //        ActionBar actionBar;
@@ -58,6 +67,11 @@ public class Attendance extends AppCompatActivity {
         btnSelect = findViewById(R.id.btnChoose);
         btnUpload = findViewById(R.id.btnUpload);
         imageView = findViewById(R.id.imgView);
+        Spinner dropdown = findViewById(R.id.spinner);
+        String[] items = new String[]{"CSE 2nd year (PCC CS-401)","CSE 1st year (PCC CS 402)"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        dropdown.setAdapter(adapter);
+
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         btnSelect.setOnClickListener(new View.OnClickListener() {

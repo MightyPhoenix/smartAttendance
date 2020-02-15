@@ -6,29 +6,62 @@
     android:background="@drawable/dashboard_background"
     tools:context=".Attendance">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="1000dp"
+        android:textAlignment="center"
+        android:textSize="32dp"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginTop="10dp"
+        android:text="Take Attendance" />
+
     <LinearLayout
         android:id="@+id/layout_button"
         android:orientation="horizontal"
         android:layout_alignParentTop="true"
         android:weightSum="2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.75"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:text="Select Class"></TextView>
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnChoose"
-            android:text="Choose"
-            android:layout_weight="1"
+            android:layout_weight=".25"
             android:layout_width="0dp"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/btnUpload"
-            android:text="Upload"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
+            android:background="@drawable/camera"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
+    <Button
+        android:id="@+id/btnUpload"
+        android:text="Upload"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"/>
 
     <ImageView
         android:id="@+id/imgView"
