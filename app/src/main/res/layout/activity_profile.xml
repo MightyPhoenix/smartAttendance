@@ -21,18 +21,11 @@
         />
 
     <RelativeLayout
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="150dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
          >
 
-        <TextView
-            android:foregroundGravity="center"
-            android:layout_centerInParent="true"
-<!--            android:background="@drawable/icons8"-->
-            android:layout_width="250px"
-            android:layout_height="250px"
-            />
 
         <TextView
             android:gravity="center"
@@ -53,14 +46,48 @@
             android:layout_below="@+id/name"
             />
 
-        <Button
-            android:id="@+id/logout"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:background="@drawable/btn_bg_logout"
-            android:text="Logout"
-            android:layout_alignParentBottom="true"/>
+            android:layout_alignParentBottom="true"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/home"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg_home"
+                android:minWidth="300dp"
+                android:text="Home"
+                android:textColor="#fff"
+
+                android:layout_marginHorizontal="5dp"
+                />
+
+            <Button
+                android:id="@+id/attendance"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_bg_attn"
+                android:textColor="#fff"
+                android:layout_marginHorizontal="5dp"
+                android:text="Attendance"/>
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:background="@drawable/btn_bg_logout"
+                android:layout_marginHorizontal="5dp"
+                android:text="LogOut"/>
+
+
+        </LinearLayout>
+
+
 
     </RelativeLayout>
 

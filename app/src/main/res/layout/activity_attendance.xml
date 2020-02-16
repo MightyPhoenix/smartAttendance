@@ -53,21 +53,55 @@
             android:layout_weight=".25"
             android:layout_width="0dp"
             android:background="@drawable/camera"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            />
 
     </LinearLayout>
-    <Button
-        android:id="@+id/btnUpload"
-        android:text="Upload"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"/>
 
     <ImageView
         android:id="@+id/imgView"
         android:layout_width="match_parent"
         android:layout_height="450dp"
         android:layout_centerInParent="true"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_bg_home"
+            android:minWidth="300dp"
+            android:text="Home"
+            android:textColor="#fff"
+
+            android:layout_marginHorizontal="5dp"
+            />
+
+        <Button
+            android:id="@+id/btnUpload"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_bg_attn"
+            android:textColor="#fff"
+            android:layout_marginHorizontal="5dp"
+            android:text="Upload"/>
+        <Button
+            android:id="@+id/profile"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:background="@drawable/btn_bg_logout"
+            android:layout_marginHorizontal="5dp"
+            android:text="Profile"/>
+
+
+    </LinearLayout>
 
 </RelativeLayout>

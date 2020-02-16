@@ -34,6 +34,7 @@
             android:minWidth="300dp"
             android:text="Home"
             android:textColor="#fff"
+
             android:layout_marginHorizontal="5dp"
             />
 
@@ -54,7 +55,7 @@
             android:textColor="#fff"
             android:background="@drawable/btn_bg_logout"
             android:layout_marginHorizontal="5dp"
-            android:text="Logout"/>
+            android:text="Profile"/>
 
 
     </LinearLayout>
