@@ -50,7 +50,7 @@ import static android.media.MediaRecorder.VideoSource.CAMERA;
 
 public class Attendance extends AppCompatActivity {
 
-    private Button btnSelect, btnUpload;
+    private Button btnSelect, btnUpload,profile,home;
     private ImageView imageView;
     private Uri filePath;
     private final int PICK_IMAGE_REQUEST = 22;
@@ -77,6 +77,20 @@ public class Attendance extends AppCompatActivity {
 //        actionBar.setBackgroundDrawable(colorDrawable);
         btnSelect = findViewById(R.id.btnChoose);
         btnUpload = findViewById(R.id.btnUpload);
+        profile = findViewById(R.id.profile);
+        home=findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Attendance.this,Dashboard.class));
+            }
+        });
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Attendance.this,profile.class));
+            }
+        });
         imageView = findViewById(R.id.imgView);
         Spinner dropdown = findViewById(R.id.spinner);
         String[] items = new String[]{"CSE 2nd year (PCC CS-401)","CSE 1st year (PCC CS 402)"};
