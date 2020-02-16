@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dashboard_background"
+    android:orientation="vertical"
+    android:padding="30dp"
+    tools:context=".profile">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="32dp"
+        android:text="User Profile"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginTop="10dp"
+        />
+
+    <RelativeLayout
+        android:layout_marginTop="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         >
+
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Teacher : Dr. (Prof) Md Atiab Kalam"
+            />
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Email : atiabkalam@gmail.com"
+            android:layout_below="@+id/name"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/home"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg_home"
+                android:minWidth="300dp"
+                android:text="Home"
+                android:textColor="#fff"
+
+                android:layout_marginHorizontal="5dp"
+                />
+
+            <Button
+                android:id="@+id/attendance"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_bg_attn"
+                android:textColor="#fff"
+                android:layout_marginHorizontal="5dp"
+                android:text="Attendance"/>
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:background="@drawable/btn_bg_logout"
+                android:layout_marginHorizontal="5dp"
+                android:text="LogOut"/>
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

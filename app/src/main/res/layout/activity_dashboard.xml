@@ -4,9 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/dashboard_background"
     android:orientation="vertical"
     android:padding="30dp"
     tools:context=".Dashboard">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="1000dp"
+        android:textAlignment="center"
+        android:textSize="32dp"
+        android:background="@drawable/rounded_corners"
+        android:text="Dashboard" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,24 +28,38 @@
         <Button
             android:id="@+id/home"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Home"/>
+            android:layout_weight="1"
+            android:background="@drawable/btn_bg_home"
+            android:minWidth="300dp"
+            android:text="Home"
+            android:textColor="#fff"
+
+            android:layout_marginHorizontal="5dp"
+            />
 
         <Button
             android:id="@+id/attendance"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn_bg_attn"
+            android:textColor="#fff"
+            android:layout_marginHorizontal="5dp"
             android:text="Attendance"/>
         <Button
             android:id="@+id/logout"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Logout"/>
+            android:textColor="#fff"
+            android:background="@drawable/btn_bg_logout"
+            android:layout_marginHorizontal="5dp"
+            android:text="Profile"/>
 
 
     </LinearLayout>
+
+
 
 </RelativeLayout>
